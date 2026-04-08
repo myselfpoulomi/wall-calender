@@ -75,6 +75,16 @@
   box-shadow: 0 4px 0 rgba(202, 138, 4, 0.12);
 }
 
+.wall-calendar__chevron--back1 {
+  background: linear-gradient(
+    to right,
+    #546a5a,
+    #4e653b,
+    #1c2f24
+  );
+  box-shadow: 0 4px 0 rgba(28, 47, 36, 0.22);
+}
+
 .wall-calendar__masthead {
   position: relative;
   z-index: 1;

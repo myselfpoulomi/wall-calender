@@ -142,7 +142,18 @@ export function WallCalendar() {
             </AnimatePresence>
           </div>
           <div className="wall-calendar__chevron-wrap" aria-hidden>
-            <div className="wall-calendar__chevron" />
+            <AnimatePresence initial={false} mode="sync">
+              <motion.div
+                key={heroSrc}
+                className={`wall-calendar__chevron${
+                  heroSrc === '/back1.png' ? ' wall-calendar__chevron--back1' : ''
+                }`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={HERO_FADE_TRANSITION}
+              />
+            </AnimatePresence>
             <div className="wall-calendar__masthead">
               <p className="wall-calendar__masthead-year">{yearLabel}</p>
               <p className="wall-calendar__masthead-month">{monthLabel}</p>
