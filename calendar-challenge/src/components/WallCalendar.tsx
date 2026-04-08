@@ -71,6 +71,15 @@ export function WallCalendar() {
           ? ' wall-calendar__chevron--back3'
           : ''
 
+  const rangeThemeClass =
+    heroSrc === '/back1.png'
+      ? ' wall-calendar--range-back1'
+      : heroSrc === '/back2.png'
+        ? ' wall-calendar--range-back2'
+        : heroSrc === '/back3.png'
+          ? ' wall-calendar--range-back3'
+          : ' wall-calendar--range-default'
+
   const cells = useMemo(
     () => getCalendarCells(cursor.y, cursor.m),
     [cursor.y, cursor.m],
@@ -132,7 +141,7 @@ export function WallCalendar() {
   }, [])
 
   return (
-    <div className="wall-calendar">
+    <div className={`wall-calendar${rangeThemeClass}`}>
       <div className="wall-calendar__sheet">
         <div className="wall-calendar__hero-block">
           <div className="wall-calendar__hero-photo">

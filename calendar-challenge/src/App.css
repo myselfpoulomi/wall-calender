@@ -20,6 +20,47 @@
   margin: 0 auto;
 }
 
+/* Date-range colors track the active hero / chevron palette */
+.wall-calendar--range-default {
+  --range-fill: #fef3c7;
+  --range-fill-muted: rgba(254, 240, 138, 0.32);
+  --range-edge: #f4c430;
+  --range-edge-color: #000000;
+  --range-edge-shadow: rgba(202, 138, 4, 0.42);
+  --range-today-ring: #d97706;
+  --range-focus: #ca8a04;
+}
+
+.wall-calendar--range-back1 {
+  --range-fill: rgba(84, 106, 90, 0.22);
+  --range-fill-muted: rgba(84, 106, 90, 0.11);
+  --range-edge: #4e653b;
+  --range-edge-color: #000000;
+  --range-edge-shadow: rgba(28, 47, 36, 0.38);
+  --range-today-ring: #546a5a;
+  --range-focus: #3d5a45;
+}
+
+.wall-calendar--range-back2 {
+  --range-fill: rgba(253, 204, 172, 0.5);
+  --range-fill-muted: rgba(111, 129, 134, 0.16);
+  --range-edge: #6f8186;
+  --range-edge-color: #000000;
+  --range-edge-shadow: rgba(111, 129, 134, 0.4);
+  --range-today-ring: #5c6e73;
+  --range-focus: #5f7177;
+}
+
+.wall-calendar--range-back3 {
+  --range-fill: rgba(206, 115, 128, 0.3);
+  --range-fill-muted: rgba(211, 82, 64, 0.14);
+  --range-edge: #ce7380;
+  --range-edge-color: #000000;
+  --range-edge-shadow: rgba(211, 82, 64, 0.45);
+  --range-today-ring: #be5c6c;
+  --range-focus: #c45c6b;
+}
+
 .wall-calendar__sheet {
   width: 100%;
   max-width: 100%;
@@ -330,34 +371,36 @@
 }
 
 .wall-calendar__day--in-range:not(.wall-calendar__day--muted) {
-  background: var(--color-teal-light, #a7e0d8);
+  background: var(--range-fill);
+  color: #000000;
 }
 
 .wall-calendar__day--start,
 .wall-calendar__day--end {
-  background: var(--color-secondary, #4db6ac);
-  color: var(--color-text, #1f2937);
+  background: var(--range-edge);
+  color: var(--range-edge-color);
   font-weight: 800;
-  box-shadow: 0 2px 8px rgba(123, 207, 196, 0.55);
+  box-shadow: 0 2px 8px var(--range-edge-shadow);
 }
 
 .wall-calendar__day--in-range.wall-calendar__day--muted {
-  background: rgba(167, 224, 216, 0.35);
+  background: var(--range-fill-muted);
+  color: #000000;
 }
 
 .wall-calendar__day--today .wall-calendar__day-num {
-  box-shadow: 0 0 0 2px var(--color-secondary, #4db6ac);
+  box-shadow: 0 0 0 2px var(--range-today-ring);
   border-radius: 999px;
   padding: 2px 6px;
 }
 
 .wall-calendar__day--today.wall-calendar__day--start .wall-calendar__day-num,
 .wall-calendar__day--today.wall-calendar__day--end .wall-calendar__day-num {
-  box-shadow: 0 0 0 2px var(--color-text, #1f2937);
+  box-shadow: 0 0 0 2px var(--range-edge-color);
 }
 
 .wall-calendar__day:focus-visible {
-  outline: 2px solid var(--color-secondary, #4db6ac);
+  outline: 2px solid var(--range-focus);
   outline-offset: 1px;
 }
 
@@ -381,11 +424,11 @@
 
 .wall-calendar__swatch--start,
 .wall-calendar__swatch--end {
-  background: var(--color-secondary, #4db6ac);
+  background: var(--range-edge);
 }
 
 .wall-calendar__swatch--range {
-  background: var(--color-teal-light, #a7e0d8);
+  background: var(--range-fill);
 }
 
 .wall-calendar__sr-only {
