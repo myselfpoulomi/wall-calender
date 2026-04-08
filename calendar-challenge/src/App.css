@@ -53,11 +53,11 @@
   height: 4.5rem;
   background: linear-gradient(
     to right,
-    var(--color-teal-light, #a7e0d8),
-    var(--color-secondary, #4db6ac)
+    #fef08a,
+    var(--color-primary, #f4c430)
   );
   clip-path: polygon(0 0, 100% 0, 100% 55%, 100% 100%, 0 55%);
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 0 rgba(202, 138, 4, 0.12);
 }
 
 .wall-calendar__masthead {
@@ -277,19 +277,19 @@
 }
 
 .wall-calendar__day--in-range:not(.wall-calendar__day--muted) {
-  background: #fef08a;
+  background: var(--color-teal-light, #a7e0d8);
 }
 
 .wall-calendar__day--start,
 .wall-calendar__day--end {
-  background: var(--color-primary, #f4c430);
+  background: var(--color-secondary, #4db6ac);
   color: var(--color-text, #1f2937);
   font-weight: 800;
-  box-shadow: 0 2px 8px rgba(232, 185, 35, 0.45);
+  box-shadow: 0 2px 8px rgba(123, 207, 196, 0.55);
 }
 
 .wall-calendar__day--in-range.wall-calendar__day--muted {
-  background: rgba(254, 240, 138, 0.35);
+  background: rgba(167, 224, 216, 0.35);
 }
 
 .wall-calendar__day--today .wall-calendar__day-num {
@@ -328,11 +328,11 @@
 
 .wall-calendar__swatch--start,
 .wall-calendar__swatch--end {
-  background: var(--color-primary, #f4c430);
+  background: var(--color-secondary, #4db6ac);
 }
 
 .wall-calendar__swatch--range {
-  background: #fef08a;
+  background: var(--color-teal-light, #a7e0d8);
 }
 
 .wall-calendar__sr-only {
