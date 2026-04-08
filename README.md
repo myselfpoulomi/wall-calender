@@ -9,20 +9,23 @@ Frontend interview challenge: a responsive **wall-calendar** style UI with a her
 
 ## Run locally
 
-```bash
+
 cd calendar-challenge
+
 npm install
+
 npm dev
-```
+
 
 Open the URL Vite prints (usually `http://localhost:5173`).
 
 ## Build
 
-```bash
+
 npm run build
+
 npm run preview
-```
+
 
 ## Design choices
 
