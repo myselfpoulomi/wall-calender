@@ -4,15 +4,15 @@ Frontend interview challenge: a responsive **wall-calendar** style UI with a her
 
 ## Stack
 
-- [Bun](https://bun.sh) (package manager & scripts)
+- [npm](https://npm.sh) (package manager & scripts)
 - React 19 + TypeScript + Vite
 
 ## Run locally
 
 ```bash
 cd calendar-challenge
-bun install
-bun dev
+npm install
+npm dev
 ```
 
 Open the URL Vite prints (usually `http://localhost:5173`).
@@ -20,8 +20,8 @@ Open the URL Vite prints (usually `http://localhost:5173`).
 ## Build
 
 ```bash
-bun run build
-bun run preview
+npm run build
+npm run preview
 ```
 
 ## Design choices
@@ -31,6 +31,3 @@ bun run preview
 - **Persistence:** Notes are stored in the browser only (no backend), as requested.
 - **Range UX:** First tap sets the start; second tap sets the end (order does not matter). A third tap starts a new range.
 
-## Submission extras
-
-Record a short demo showing range selection, notes, and responsive layout. Optional: deploy the `dist` folder from `bun run build` to any static host.
