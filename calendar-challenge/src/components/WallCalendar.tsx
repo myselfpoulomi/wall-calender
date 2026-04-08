@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import type { MutableRefObject } from 'react'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   compareDateKeys,
   getCalendarCells,
@@ -39,12 +39,48 @@ function isWeekend(d: Date): boolean {
   return day === 0 || day === 6
 }
 
+const VIEW_STORAGE_KEY = 'wall-calendar-view-v1'
+
+function getInitialCursor(): { y: number; m: number } {
+  const now = new Date()
+  const fallback = { y: now.getFullYear(), m: now.getMonth() }
+  if (typeof window === 'undefined') return fallback
+  try {
+    const raw = localStorage.getItem(VIEW_STORAGE_KEY)
+    if (!raw) return fallback
+    const p = JSON.parse(raw) as { y?: number; m?: number }
+    if (
+      typeof p.y !== 'number' ||
+      typeof p.m !== 'number' ||
+      !Number.isInteger(p.y) ||
+      !Number.isInteger(p.m) ||
+      p.y < 1900 ||
+      p.y > 2100 ||
+      p.m < 0 ||
+      p.m > 11
+    ) {
+      return fallback
+    }
+    return { y: p.y, m: p.m }
+  } catch {
+    return fallback
+  }
+}
+
 export function WallCalendar() {
   const now = new Date()
-  const [cursor, setCursor] = useState(() => ({
-    y: now.getFullYear(),
-    m: now.getMonth(),
-  }))
+  const [cursor, setCursor] = useState(getInitialCursor)
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        VIEW_STORAGE_KEY,
+        JSON.stringify({ y: cursor.y, m: cursor.m }),
+      )
+    } catch {
+      // ignore quota / private mode
+    }
+  }, [cursor.y, cursor.m])
   const [rangeStart, setRangeStart] = useState<string | null>(null)
   const [rangeEnd, setRangeEnd] = useState<string | null>(null)
   const [showMonthMemoField, setShowMonthMemoField] = useState(false)
