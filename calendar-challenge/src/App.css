@@ -181,7 +181,7 @@
   flex-direction: column;
   gap: 10px;
   cursor: text;
-  min-height: 278px; /* To maintain notepad height when textarea is hidden */
+  min-height: 278px;
 }
 
 .wall-calendar__notepad-placeholder {
@@ -419,7 +419,6 @@
   }
 
   .wall-calendar__chevron-wrap {
-    /* Less overlap with hero so the band sits lower on small screens */
     margin-top: -0.75rem;
     min-height: 4rem;
   }
@@ -468,7 +467,6 @@
 
   .wall-calendar__notepad-field--primary {
     min-height: 160px;
-    /* Avoid iOS zoom on focus */
     font-size: max(1rem, 16px);
   }
 
@@ -526,7 +524,6 @@
   }
 }
 
-/* Month nav slide: clip overflow only (does not alter existing calendar rules) */
 .wall-calendar__calendar-slide-clip {
   overflow: hidden;
   width: 100%;
